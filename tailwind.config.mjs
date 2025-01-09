@@ -10,7 +10,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        customOrange: "#F4A88E",
+        customGray: "#E4E4E4"
       },
+      fontSize: {
+        xxl: "62px",
+        xl: "50px",
+        lg: "28px",
+        base: "22px",
+        sm: "20px",
+        xs: "16px",
+        xxs: "14px",
+      }
     },
   },
   plugins: [],
