@@ -11,6 +11,7 @@ export default function LandingPage() {
       </section>
       <section className="relative bg-[url('/images/welcome-center.jpg')] w-full h-[70vh] bg-cover bg-center">
         <Button text="Start Training" className={"absolute right-0 bottom-20"} href="/home"/>
+        Halloo
       </section>
     </>
   )
