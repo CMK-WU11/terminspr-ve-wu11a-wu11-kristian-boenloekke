@@ -1,5 +1,4 @@
-import Button from "@/components/Button";
-import Image from "next/image";
+import Link from "next/link";
 
 export default function LandingPage() {
 
@@ -10,8 +9,9 @@ export default function LandingPage() {
         <p className="text-base text-white">Train like a pro</p>
       </section>
       <section className="relative bg-[url('/images/welcome-center.jpg')] w-full h-[70vh] bg-cover bg-center">
-        <Button text="Start Training" className={"absolute right-0 bottom-20"} href="/home"/>
-        Halloo
+        <Link href='/home' className="bg-white rounded-l-lg text-[26px] p-4 absolute right-0 bottom-20">
+          Start training
+        </Link>
       </section>
     </>
   )

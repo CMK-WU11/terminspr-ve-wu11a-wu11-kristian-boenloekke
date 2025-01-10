@@ -1,5 +1,4 @@
 'use client'
-import { login } from "@/lib/auth"
 import { useState } from "react"
 
 export default function FormLogin({setShowMenu}) {
@@ -10,7 +9,7 @@ export default function FormLogin({setShowMenu}) {
         e.preventDefault()
 
         try {
-            const res = await fetch('/api/auth',{
+            const response = await fetch('/api/auth',{
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
@@ -21,13 +20,13 @@ export default function FormLogin({setShowMenu}) {
                 })
             })
 
-            if (!res.ok) {
+            if (!response.ok) {
                 throw new Error("Login failed")
             } else {
                 setShowMenu(false)
             }
-        } catch (err) {
-            console.error('Login error:', err)
+        } catch (error) {
+            console.error('Login error:', error)
         }
 
     }

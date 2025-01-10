@@ -26,12 +26,12 @@ export default function BurgerMenu() {
             </button>
 
             {showMenu &&
-                <div className="absolute inset-0 bg-white flex flex-col w-full h-[100vh]">
+                <div className="absolute inset-0 bg-white flex flex-col w-full h-[100vh] z-30">
                     <button className="self-end p-4" onClick={toggleMenu}><X size={40} /></button>
                     <nav className="mb-14">
                         <ul className="text-lg text-center flex flex-col gap-6">
-                            <li><Link href="/home">Home</Link></li>
-                            <li><Link href="/search">Search</Link></li>
+                            <li><Link href="/home" onClick={toggleMenu}>Home</Link></li>
+                            <li><Link href="/search" onClick={toggleMenu}>Search</Link></li>
                             {user ?
                                 <ul className="text-lg text-center flex flex-col gap-6">
                                     <li><Link href="/myschedule">My Schedule</Link></li>

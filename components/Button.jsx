@@ -1,10 +1,11 @@
+'use client'
 import Link from "next/link";
 
-export default function Button({text, className, href}) {
+export default function Button({text, className }) {
     return (
-        <Link href={href} className={`bg-white rounded-l-lg text-[26px] p-4 ${className}`}>
+        <button className={`bg-white rounded-l-lg text-[26px] p-4 ${className}`}>
             {text}
-        </Link>
+        </button>
         
     )
 }
