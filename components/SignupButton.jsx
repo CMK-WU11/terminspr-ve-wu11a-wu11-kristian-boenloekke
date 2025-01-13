@@ -1,9 +1,17 @@
 'use client'
 
-import { useState } from "react"
+import { useAuth } from "@/contexts/AuthProvider"
+import { useState, useEffect } from "react"
 
 export default function SignupButton({ classId }) {
+    const { user } = useAuth()
     const [userIsSignedUp, setUserIsSignedUp] = useState(false)
+
+    useEffect(() => {
+        if (user?.classes?.some((cls) => cls.id === classId)) {
+            setUserIsSignedUp(true)
+        }
+    }, [user, classId])
 
     async function addClass() {
         try {

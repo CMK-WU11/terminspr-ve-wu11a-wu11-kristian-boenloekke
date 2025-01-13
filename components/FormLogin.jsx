@@ -1,9 +1,11 @@
 'use client'
 import { useState } from "react"
+import { useAuth } from "@/contexts/AuthProvider"
 
 export default function FormLogin({setShowMenu}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const { refreshUser } = useAuth()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -23,6 +25,7 @@ export default function FormLogin({setShowMenu}) {
             if (!response.ok) {
                 throw new Error("Login failed")
             } else {
+                await refreshUser()
                 setShowMenu(false)
             }
         } catch (error) {

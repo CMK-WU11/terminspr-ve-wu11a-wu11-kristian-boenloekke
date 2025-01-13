@@ -6,14 +6,14 @@ const AuthContext = createContext()
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null)
 
-    useEffect(() => {
+    
         async function fetchUser() {
             try {
                 const response = await fetch('/api/users', { method: 'GET' })
                 if (response.ok) {
-                    const { authenticated, id, username } = await response.json()
+                    const { authenticated, id, username, classes } = await response.json()
                     if (authenticated) {
-                        setUser({ id, username })
+                        setUser({ id, username, classes })
                     } else {
                         setUser(null)
                     }
@@ -26,11 +26,12 @@ export function AuthProvider({ children }) {
             }
         }
 
+    useEffect(() => {
         fetchUser()
     }, [])
 
     return (
-        <AuthContext.Provider value={{ user, setUser,}}>
+        <AuthContext.Provider value={{ user, setUser, refreshUser: fetchUser}}>
             {children}
         </AuthContext.Provider>
     )

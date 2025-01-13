@@ -25,7 +25,7 @@ export async function GET() {
         const user = await response.json()
         if (user) {
             return new Response(
-                JSON.stringify({ authenticated: true, id: user.id, username: user.username }),
+                JSON.stringify({ authenticated: true, id: user.id, username: user.username, classes: user.classes }),
                 {
                     status: 200,
                     headers: { 'Content-Type': 'application/json' },

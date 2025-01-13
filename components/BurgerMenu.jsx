@@ -19,6 +19,7 @@ export default function BurgerMenu() {
     function handleShowLoginForm() {
         setShowLoginForm(true)
     }
+    
     return (
         <>
             <button aria-label="Toggle navigation menu" onClick={toggleMenu}>
@@ -43,7 +44,7 @@ export default function BurgerMenu() {
                         </ul>
                     </nav>
 
-                    {showLoginForm && <FormLogin setShowMenu={setShowMenu} />}
+                    {showLoginForm && !user && <FormLogin setShowMenu={setShowMenu} />}
 
                 </div>
             }
