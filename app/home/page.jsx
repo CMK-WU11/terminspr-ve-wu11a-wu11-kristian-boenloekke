@@ -9,7 +9,7 @@ export default async function Home() {
 
     return (
         <main className="w-full">
-            <h1 className="text-lg">Popular Classes</h1>
+            
             <Image
                 src={randomItem.asset.url}
                 width={5500}
@@ -18,6 +18,7 @@ export default async function Home() {
                 className="w-full h-[50vh] object-cover"
                 alt="workout people"
             />
+            <h1 className="text-lg">Classes for you</h1>
             <ul className="flex overflow-x-auto gap-4 w-full p-4 no-scrollbar">
                 {classes.map((item) => (
                     <li key={item.id} className="flex-shrink-0">

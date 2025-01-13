@@ -57,13 +57,17 @@ export default function SignupButton({ classId }) {
         }
     }
 
+    if (!user) {
+        return null
+    }
+
 
     return (
         <>
             {userIsSignedUp ?
                 <button className={`bg-white rounded-l-xl text-[26px] p-4 w-1/2 self-end`}
                     onClick={() => removeClass()}>
-                    Cancel
+                    Leave
                 </button>
 
                 :

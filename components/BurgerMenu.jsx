@@ -10,7 +10,7 @@ export default function BurgerMenu() {
     const [showMenu, setShowMenu] = useState(false)
     const [showLoginForm, setShowLoginForm] = useState(false)
     const { user } = useAuth()
-    console.log(user);
+    // console.log(user);
 
     function toggleMenu() {
         setShowMenu(prev => !prev)
@@ -19,7 +19,7 @@ export default function BurgerMenu() {
     function handleShowLoginForm() {
         setShowLoginForm(true)
     }
-    
+
     return (
         <>
             <button aria-label="Toggle navigation menu" onClick={toggleMenu}>
@@ -35,7 +35,7 @@ export default function BurgerMenu() {
                             <li><Link href="/search" onClick={toggleMenu}>Search</Link></li>
                             {user ?
                                 <ul className="text-lg text-center flex flex-col gap-6">
-                                    <li><Link href="/myschedule">My Schedule</Link></li>
+                                    <li><Link href="/my-schedule" onClick={toggleMenu}>My Schedule</Link></li>
                                     <li><button onClick={logout}>Log out</button></li>
                                 </ul>
 

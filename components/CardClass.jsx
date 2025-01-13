@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Ratings from "./Ratings";
 
 export default function CardClass({item}) {
     return (
@@ -13,6 +14,7 @@ export default function CardClass({item}) {
                 priority 
             />
             <h2 className="text-[16px]">{item.className}</h2>
+            <Ratings classId={item.id} />
             </Link>
         </article>
     )
