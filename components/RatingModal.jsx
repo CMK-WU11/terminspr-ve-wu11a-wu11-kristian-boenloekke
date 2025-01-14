@@ -48,7 +48,7 @@ export default function RatingModal({ classId, ratings }) {
     return (
         <>
             
-                <button onClick={toggleModal} className="text-white">Rate this class</button>
+                <button onClick={toggleModal} className="text-white hover:text-customOrange">Rate this class</button>
             
             {showModal &&
                 <div className="fixed inset-0 z-20 bg-white/70 h-screen flex flex-col justify-center items-center">

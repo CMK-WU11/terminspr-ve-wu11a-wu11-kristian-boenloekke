@@ -21,7 +21,7 @@ export default async function ClassDetails({ params }) {
                     className="fixed inset-0 z-[-10] w-full h-[50vh] object-cover filter brightness-[0.6]"
                     priority
                 />
-                <h1 className="text-xl text-white">{details.className}</h1>
+                <h1 className="text-xl  text-white">{details.className}</h1>
                 <SignupButton classId={id} />
                 <div className='flex flex-col items-start gap-2'>
                     <Ratings classId={id} />
@@ -29,13 +29,13 @@ export default async function ClassDetails({ params }) {
                 </div>
             </section>
 
-            <section>
-                <h2 className='text-lg'>Schedule</h2>
-                <p className='flex justify-between'>{details.classDay} <span>{details.classTime}</span></p>
-                <p>{details.classDescription}</p>
+            <section className='p-4'>
+                <h2 className='text-lg/6'>Schedule</h2>
+                <p className='flex justify-between text-xs'>{details.classDay} <span>{details.classTime}</span></p>
+                <p className='text-base pt-4'>{details.classDescription}</p>
             </section>
 
-            <section className='pt-6'>
+            <section className='px-4'>
                 <h2 className='text-lg'>Trainer</h2>
                 <CardTrainer id={details.trainerId} />
             </section>

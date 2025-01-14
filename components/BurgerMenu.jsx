@@ -6,7 +6,7 @@ import FormLogin from "./FormLogin"
 import { useAuth } from "@/contexts/AuthProvider"
 import { logout } from "@/lib/auth"
 
-export default function BurgerMenu() {
+export default function BurgerMenu({className}) {
     const [showMenu, setShowMenu] = useState(false)
     const [showLoginForm, setShowLoginForm] = useState(false)
     const { user } = useAuth()

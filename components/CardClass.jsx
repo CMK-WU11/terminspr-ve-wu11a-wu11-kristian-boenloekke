@@ -4,7 +4,7 @@ import Ratings from "./Ratings";
 
 export default function CardClass({item}) {
     return (
-        <article className="w-[33vw]">
+        <article className="w-[33vw] h-full flex flex-col justify-between">
             <Link href={`/classes/${item.id}`}>
             <Image 
                 src={item.asset.url} 
@@ -14,8 +14,8 @@ export default function CardClass({item}) {
                 priority 
             />
             <h2 className="text-[16px]">{item.className}</h2>
-            <Ratings classId={item.id} />
             </Link>
+            <Ratings classId={item.id} />
         </article>
     )
     
