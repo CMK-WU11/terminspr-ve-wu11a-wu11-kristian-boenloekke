@@ -8,9 +8,7 @@ import Ratings from '@/components/Ratings';
 export default async function ClassDetails({ params }) {
     const { id } = await params
     const details = await fetch(`http://localhost:4000/api/v1/classes/${id}`).then((r) => r.json())
-    console.log(details);
     const ratings = await fetch(`http://localhost:4000/api/v1/classes/${id}/ratings`).then(r => r.json())
-
 
     return (
         <main>
@@ -29,19 +27,17 @@ export default async function ClassDetails({ params }) {
                     <Ratings classId={id} />
                     <RatingModal classId={id} ratings={ratings} />
                 </div>
-
             </section>
+
             <section>
                 <h2 className='text-lg'>Schedule</h2>
                 <p className='flex justify-between'>{details.classDay} <span>{details.classTime}</span></p>
                 <p>{details.classDescription}</p>
-
             </section>
 
             <section className='pt-6'>
                 <h2 className='text-lg'>Trainer</h2>
                 <CardTrainer id={details.trainerId} />
-
             </section>
 
         </main>

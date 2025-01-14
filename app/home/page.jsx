@@ -4,14 +4,12 @@ import Image from "next/image";
 export default async function Home() {
     const classes = await fetch('http://localhost:4000/api/v1/classes').then(r => r.json())
 
-    const randomIndex = Math.floor(Math.random() * classes.length)
-    const randomItem = classes[randomIndex]
+    const random = Math.floor(Math.random() * classes.length)
 
     return (
         <main className="w-full">
-            
             <Image
-                src={randomItem.asset.url}
+                src={classes[random].asset.url}
                 width={5500}
                 height={3333}
                 priority
