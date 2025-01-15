@@ -13,6 +13,7 @@ export default function MySchedule() {
 
     return (
         <main className="px-4">
+            lets go
             <h1 className="text-xl">My Schedule</h1>
 
             <ul>
