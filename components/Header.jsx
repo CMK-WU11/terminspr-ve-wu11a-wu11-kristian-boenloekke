@@ -7,10 +7,12 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
     const pathname = usePathname()
+    const showHeader = pathname !== '/' && !pathname.startsWith(`/classes/`)
+
 
     return (
         <>
-            {pathname !== '/' &&
+            {showHeader &&
                 <header className="flex flex-row-reverse justify-between items-center p-4">
                     <BurgerMenu />
                     {pathname !== '/home' &&

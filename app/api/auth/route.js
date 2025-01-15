@@ -2,7 +2,7 @@
 import { cookies } from 'next/headers'
 
 export async function POST(request) {
-    try {
+    // try {
       const { username, password } = await request.json()
       const res = await fetch('http://localhost:4000/auth/token', {
         method: 'POST',
@@ -14,7 +14,7 @@ export async function POST(request) {
       })
   
       const data = await res.json()
-  
+      
       if (!res.ok) {
         return new Response(
           JSON.stringify({ error: data.message || 'Authentication failed' }),
@@ -23,30 +23,18 @@ export async function POST(request) {
       }
   
       const cookieStore = await cookies()
-  
-      cookieStore.set('trainer_token', data.token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        path: '/',
-      })
-
-      cookieStore.set('user_id', data.userId, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        path: '/',
-      })
+      cookieStore.set('trainer_token', data.token)
+      cookieStore.set('user_id', data.userId)
   
       return new Response(JSON.stringify({ success: true }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
       })
-    } catch (error) {
-      // console.error('Login error:', error)
-      return new Response(
-        JSON.stringify({ error: 'Internal server error' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-      )
-    }
+      
+    // } catch (error) {
+    //   return new Response(
+    //     JSON.stringify({ error: 'Internal server error' }),
+    //     { status: 500, headers: { 'Content-Type': 'application/json' } }
+    //   )
+    // }
   }

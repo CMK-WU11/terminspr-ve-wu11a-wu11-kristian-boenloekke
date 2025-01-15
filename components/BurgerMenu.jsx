@@ -6,10 +6,10 @@ import FormLogin from "./FormLogin"
 import { useAuth } from "@/contexts/AuthProvider"
 import { logout } from "@/lib/auth"
 
-export default function BurgerMenu({className}) {
+export default function BurgerMenu() {
     const [showMenu, setShowMenu] = useState(false)
     const [showLoginForm, setShowLoginForm] = useState(false)
-    const { user } = useAuth()
+    const { user, refreshUser } = useAuth()
     // console.log(user);
 
     function toggleMenu() {
@@ -18,6 +18,11 @@ export default function BurgerMenu({className}) {
 
     function handleShowLoginForm() {
         setShowLoginForm(true)
+    }
+
+    async function handleLogout() {
+        await logout()
+        await refreshUser()
     }
 
     return (
@@ -36,7 +41,7 @@ export default function BurgerMenu({className}) {
                             {user ?
                                 <ul className="text-lg text-center flex flex-col gap-6">
                                     <li><Link href="/my-schedule" onClick={toggleMenu}>My Schedule</Link></li>
-                                    <li><button onClick={logout}>Log out</button></li>
+                                    <li><button onClick={handleLogout}>Log out</button></li>
                                 </ul>
 
                                 : <li><button onClick={handleShowLoginForm}>Log in</button></li>
@@ -44,7 +49,12 @@ export default function BurgerMenu({className}) {
                         </ul>
                     </nav>
 
-                    {showLoginForm && !user && <FormLogin setShowMenu={setShowMenu} />}
+                    {showLoginForm && !user &&
+                        <FormLogin
+                            setShowMenu={setShowMenu}
+                            setShowLoginForm={setShowLoginForm}
+                        />
+                    }
 
                 </div>
             }
